@@ -1,0 +1,86 @@
+/*!*---------slick slider--------------*!*/
+.slick-slide {
+  outline: none;
+  border: none;
+}
+
+.slick-next, .slick-prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  outline: none;
+  transition: 0.5s all ease;
+  border: 0;
+  z-index: 10;
+  background:transparent;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:before {
+    font-family: FontAwesome;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    font-size: 16px;
+    color: $main_color;
+    transition: 0.5s all ease;
+  }
+}
+.slick-next {
+  right: -15px;
+  &:before {
+    content: '\f054';
+  }
+}
+.slick-prev {
+  left: -15px;
+  &:before {
+    content: '\f053';
+  }
+}
+
+.slick-dots {
+  text-align: center;
+  font-size: 0;
+  position: absolute;
+  bottom: -45px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  & li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $main_color;
+    border: 0;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: 0.5s ease all;
+    position: relative;
+    & button {
+      background: none;
+      outline: none;
+      border: none;
+      font-size: 0;
+    }
+    &.slick-active, &:hover {
+      background-color: $main_color;
+      cursor: pointer;
+    }
+  }
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
