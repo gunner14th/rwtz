@@ -1,0 +1,43 @@
+.page-title {
+    h1 {
+        font-size: 36px;
+        padding-bottom: 2em;
+    }
+}
+
+// Publications page
+.publications-content {
+    .publication {
+        margin-bottom: 30px;
+        
+        a.pub-content-box {
+            padding: 8px;
+            border: 2px solid $main_color;
+            transition: all .2s;
+            height: 100%;
+            
+            &:hover,
+            &:hover img {
+                border-radius: 7px;
+                background-color: $light_green_color;
+            }
+            
+            .img-wrap {
+                margin-bottom: 15px;
+                
+                img {
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                    transition: all .2s;
+                }
+            }
+            
+            h2.pub-title {
+                font-size: 24px;
+                padding-bottom: 0;
+                max-height: calculateTitleHeight($h_line_height, 24px, 2);
+                overflow: hidden;
+            }
+        }
+    }
+}

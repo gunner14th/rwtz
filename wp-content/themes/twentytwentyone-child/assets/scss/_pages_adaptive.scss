@@ -1,9 +1,9 @@
 /*--------------@media-------------*/
 
-@media screen and (max-width: 767px){
-
-}
-
 @media screen and (max-width: 480px){
-
+    .page-title {
+        h1 {
+            padding-bottom: 1em;
+        }
+    }
 }

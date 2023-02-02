@@ -8,3 +8,8 @@ $light_blue_color: #C4D6F8;
 $light_brown_color: #E7CC87;
 $light_violet_color: #EAE2F7;
 $light_pink_color: #F8C4DC;
+$h_line_height: 1.2;
+
+@function calculateTitleHeight($lh, $fontSize, $descenderHeightScale) {
+    @return ($fontSize * $lh) * $descenderHeightScale;
+}

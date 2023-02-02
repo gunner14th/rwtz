@@ -27,6 +27,7 @@ add_action('after_setup_theme', 'rwtz_setup');
  */
 function rwtz_scripts_and_styles() {
     wp_enqueue_style('rwtz-style', get_stylesheet_uri(), [ 'twenty-twenty-one-style' ], _S_VERSION);
+    wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css');
     wp_enqueue_style('rwtz-style-main', _THEME_URI . '/dist/css/main.min.css', "", time());
     wp_enqueue_script('common-js', _THEME_URI . '/dist/js/scripts.min.js', [ 'jquery' ], time());
     wp_localize_script( 'common-js', 'front_data', [
