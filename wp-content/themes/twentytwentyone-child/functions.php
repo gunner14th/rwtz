@@ -78,53 +78,9 @@ function register_post_type_rw_olx() {
 add_action( 'init', 'register_post_type_rw_olx' );
 
 /**
- * Custom fields for posts
+ * Including files
  */
-add_action( 'add_meta_boxes', 'rw_olx_image_add_metabox' );
-function rw_olx_image_add_metabox () {
-    add_meta_box( 'rw_olx_image', __( 'Publication Image', 'twentytwentyone-child' ), 'rw_olx_image_metabox', 'rw_olx', 'side', 'low');
-}
-function rw_olx_image_metabox ( $post ) {
-    global $content_width, $_wp_additional_image_sizes;
-
-    $image_id = get_post_meta( $post->ID, '_rw_olx_image_id', true );
-
-    $old_content_width = $content_width;
-    $content_width = 254;
-
-    if ( $image_id && get_post( $image_id ) ) {
-
-        if ( ! isset( $_wp_additional_image_sizes['post-thumbnail'] ) ) {
-            $thumbnail_html = wp_get_attachment_image( $image_id, array( $content_width, $content_width ) );
-        } else {
-            $thumbnail_html = wp_get_attachment_image( $image_id, 'post-thumbnail' );
-        }
-
-        if ( ! empty( $thumbnail_html ) ) {
-            $content = $thumbnail_html;
-            $content .= '<p class="hide-if-no-js"><a href="javascript:;" id="remove_rw_olx_image_button" >' . esc_html__( 'Remove image', 'twentytwentyone-child' ) . '</a></p>';
-            $content .= '<input type="hidden" id="upload_rw_olx_image" name="_rw_olx_cover_image" value="' . esc_attr( $image_id ) . '" />';
-        }
-
-        $content_width = $old_content_width;
-    }
-    else {
-
-        $content = '<img src="" style="width:' . esc_attr( $content_width ) . 'px;height:auto;border:0;display:none;" />';
-        $content .= '<p class="hide-if-no-js"><a title="' . esc_attr__( 'Set image', 'text-domain' ) . '" href="javascript:;" id="upload_rw_olx_image_button" id="set-rw_olx-image" data-uploader_title="' . esc_attr__( 'Choose an image', 'twentytwentyone-child' ) . '" data-uploader_button_text="' . esc_attr__( 'Set listing image', 'twentytwentyone-child' ) . '">' . esc_html__( 'Set image', 'twentytwentyone-child' ) . '</a></p>';
-        $content .= '<input type="hidden" id="upload_rw_olx_image" name="_rw_olx_cover_image" value="" />';
-
-    }
-
-    echo $content;
-}
-add_action( 'save_post', 'rw_olx_image_save', 10, 1 );
-function rw_olx_image_save ( $post_id ) {
-    if( isset( $_POST['_rw_olx_cover_image'] ) ) {
-        $image_id = (int) $_POST['_rw_olx_cover_image'];
-        update_post_meta( $post_id, '_rw_olx_image_id', $image_id );
-    }
-}
+require_once get_stylesheet_directory() . '/includes/hooks.php';
 
 /**
  * Debug helper
