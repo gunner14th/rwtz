@@ -41,7 +41,7 @@ add_action('wp_enqueue_scripts', 'rwtz_scripts_and_styles');
  * Enqueue scripts and styles Front.
  */
 function rwtz_scripts_and_styles_admin() {
-    wp_enqueue_script('common-js', _THEME_URI . '/dist/admin-js/admin-scripts.min.js', [ 'jquery' ], time());
+    wp_enqueue_script('admin-js', _THEME_URI . '/dist/admin-js/admin-scripts.min.js', [ 'jquery' ], time());
 }
 add_action('admin_enqueue_scripts', 'rwtz_scripts_and_styles_admin');
 
